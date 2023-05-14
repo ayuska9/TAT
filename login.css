@@ -1,0 +1,151 @@
+
+*{
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: #333;
+  background-size: cover;
+  background-position: center;
+  min-height: 100vh;
+  animation: body-animation 30s infinite;
+  
+}
+
+@keyframes body-animation {
+0% {
+  background-image: url('1.jpg');
+}
+25% {
+  background-image: url('6.jpg');
+}
+50% {
+  background-image: url('7.jpg');
+}
+75% {
+  background-image: url('4.jpg');
+}
+100% {
+  background-image: url('5.jpg');
+}
+
+}
+
+a {
+  text-decoration: none;
+  color: #333;
+}
+
+.container1 {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f7f7f7;
+  border-radius: 5px;
+}
+
+
+/* Header Styles */
+header {
+  background-color: #333;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+  }
+  nav ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+}
+
+nav ul li {
+    margin: 0 10px;
+}
+
+nav ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+  header ul li a:hover {
+  background-color: #ff9900;
+  }
+
+/* Main Styles */
+main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  min-height: calc(100vh - 80px - 20px);
+  padding-bottom: 20px;
+}
+
+section {
+  margin-bottom: 50px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.2);
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
+h2 {
+  margin-top: 0;
+  font-size: 24px;
+  text-align: center;
+}
+
+form label {
+  display: flex;
+  font-size: 16px;
+  font-weight: bold;
+  flex-direction: column;
+  margin-bottom: 8px;
+}
+input {
+  height: 40px;
+  padding: 10px;
+  font-size: 16px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  margin-bottom: 16px;
+}
+
+form button{
+  display: block;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #333;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+}
+
+form button:hover {
+  background-color: #ff9900;
+  color: #fff;
+}
+
+
+/* Footer Styles */
+footer {
+  background-color: #333;
+  color: #fff;
+  padding: 10px 20px;
+  text-align: center;
+}
+
+footer p {
+  font-size: 14px;
+}
+

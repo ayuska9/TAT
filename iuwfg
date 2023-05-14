@@ -1,0 +1,66 @@
+
+.user-list {
+	margin: 20px;
+}
+  
+.user-list h2 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+}
+  
+.user-list table {
+	border-collapse: collapse;
+	width: 100%;
+}
+  
+.user-list th, .user-list td {
+	border: 1px solid #ddd;
+	padding: 8px;
+}
+  
+.user-list th {
+	background-color: #f2f2f2;
+	font-weight: bold;
+}
+  
+.user-list tr:nth-child(even) {
+	background-color: #f2f2f2;
+}
+  
+.user-list a {
+	text-decoration: none;
+	color: blue;
+}
+  
+.user-list a:hover {
+	color: red;
+}
+<div class="user-list">
+<h2>User List</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Email</th>
+      <th>Phone</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>John Doe</td>
+      <td>johndoe@email.com</td>
+      <td>123-456-7890</td>
+      <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+    </tr>
+    <tr>
+      <td>Jane Smith</td>
+      <td>janesmith@email.com</td>
+      <td>555-555-5555</td>
+      <td><a href="#">Edit</a> | <a href="#">Delete</a></td>
+    </tr>
+    <!-- more user data here -->
+  </tbody>
+</table>
+</div>
