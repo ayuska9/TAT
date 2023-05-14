@@ -38,12 +38,12 @@ body {
 
 /* Header Styles */
 header {
-	background-color: #333;
+	background-color: #000000;
 	color: #fff;
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	padding: 10px 20px;
+	padding: 23px 55px;
 }
 nav ul {
 	list-style-type: none;
@@ -60,9 +60,14 @@ nav ul li a {
 	color: #fff;
 	text-decoration: none;
 }
-  
+nav ul li a.active {
+	color: #eb770a;
+	font-weight: bold;
+  }
 nav ul li a:hover {
-	background-color: #ff9900;
+	background-color: #ddd;
+	color: black;
+    padding: 15px;
 }
  
 
@@ -105,13 +110,38 @@ nav ul li a:hover {
 	background-color: #f1f1f1;
 }
 
-.user-list a {
-	text-decoration: none;
-	color: #0077cc;
-	transition: color 0.3s ease-in-out;
-}
 
-.user-list a:hover {
-	color: red; 
-}
-
+.button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    margin: 4px 2px;
+  }
+  
+  .button:hover {
+    background-color: #0069d9;
+  }
+  
+  .edit {
+    background-color: #005eff;
+  }
+  
+  .edit:hover {
+    background-color: #0a0454;
+  }
+  
+  .delete {
+    background-color: red;
+  }
+  
+  .delete:hover {
+    background-color: #821a23;
+  }
+  
+  

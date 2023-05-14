@@ -9,12 +9,12 @@
 		<h1>Tours and Travels</h1>
 		<nav>
 			<ul>
-			<li><a href="dashboard">Dashboard</a></li>
-			<li><a href="packages">Packages</a></li>
-			<li><a href="bookings">Bookings</a></li>
-			<li><a href="#clients">Clients</a></li>
-			<li><a href="#issues">Issues</a></li>
-			<li><a href="#login">Login</a></li>	
+			<li><a href="admin.php">Dashboard</a></li>
+            <li><a href="bookings.php">Bookings</a></li>
+            <li><a href="../inquiry/view_inquiry.php">Issues</a></li>
+            <li><a href="user.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'user.php' ? 'active' : ''; ?>">Users</a></li>
+            <li><a href="../image/index.php">Packages</a></li>
+			<li><a href="../Login.php">Logout</a></li>	
 			</ul>
 		</nav>
 	</header>
@@ -30,12 +30,12 @@ $conn = mysqli_connect($host, $username, $password, $dbname);
 // Handle delete action if requested
 if (isset($_GET['delete'])) {
   $id = $_GET['delete'];
-  $query = "DELETE FROM signup WHERE id=$id";
+  $query = "DELETE FROM user WHERE id=$id";
   mysqli_query($conn, $query);
 }
 
 // Query the database for user data
-$query = 'SELECT * FROM signup';
+$query = 'SELECT * FROM user';
 $result = mysqli_query($conn, $query);
 
 // Generate the HTML for the table
@@ -61,6 +61,9 @@ $html = '<div class="user-list">
 // Loop through query result and output user data in table rows
 while ($row = mysqli_fetch_assoc($result)) {
   $id = $row['id'];
+  if ($row['username'] == 'admin') {
+    continue; // skip this row
+  }
   $html .= "<tr>";
   $html .= "<td>" . $id . "</td>";
   $html .= "<td>" . $row['firstname'] . "</td>";
@@ -69,9 +72,12 @@ while ($row = mysqli_fetch_assoc($result)) {
   $html .= "<td>" . $row['email'] . "</td>";
   $html .= "<td>" . $row['password'] . "</td>";
   $html .= "<td>" . $row['address'] . "</td>";
-  $html .= "<td>" . $row['dateadded'] . "</td>";
-  $html .= "<td>" . $row['dateupdated'] . "</td>";
-  $html .= '<td><a href="edit.php?id=' . $id . '">Edit</a> | <a href="?delete=' . $id . '">Delete</a></td>';
+  $html .= "<td>" . $row['date_added'] . "</td>";
+  $html .= "<td>" . $row['date_updated'] . "</td>";
+  $html .= "<td>";
+  $html .= "<a href='edit_user.php?id=" . $id . "' class='button edit'>Edit</a> ";
+  $html .= "<a href='?delete=" . $id . "' class='button delete'>Delete</a>";
+  $html .= "</td>";
   $html .= "</tr>";
 }
 
@@ -87,6 +93,12 @@ mysqli_close($conn);
 ?>
 
 
+</table>
+</div>';
+
+
+
 
 </body>
 </html>
+<?php include('footer.php'); ?>
