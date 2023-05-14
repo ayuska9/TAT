@@ -5,26 +5,16 @@
 	<link rel="stylesheet" href="admin.css">
 </head>
 <body>
-
-	<!-- <div class="navbar">
-        
-        <a href="#">Login</a>
-        <a href="#">Issues</a>
-        <a href="#">Clients</a>
-        <a href="#">Bookings</a>
-        <a href="#">Packages</a>
-		<a href="#">Dashboard</a>
-	</div> -->
 	<header>
 		<h1>Tours and Travels</h1>
 		<nav>
 			<ul>
-			<li><a href="dashboard">Dashboard</a></li>
-			<li><a href="packages">Packages</a></li>
-			<li><a href="bookings">Bookings</a></li>
-			<li><a href="#clients">Clients</a></li>
-			<li><a href="#issues">Issues</a></li>
-			<li><a href="#login">Login</a></li>	
+				<li><a href="admin.php" class="<?php echo basename($_SERVER['PHP_SELF']) == 'admin.php' ? 'active' : ''; ?>">Dashboard</a></li>
+                <li><a href="bookings.php">Bookings</a></li>
+                <li><a href="../inquiry/view_inquiry.php">Issues</a></li>
+                <li><a href="user.php">Users</a></li>
+                <li><a href="..\image\index.php">Packages</a></li>
+			    <li><a href="../login.php">Logout</a></li>	
 			</ul>
 		</nav>
 	</header>
@@ -78,7 +68,7 @@ $dbname = "tat";
 				}
 
 				// Query to retrieve total users
-				$sql = "SELECT COUNT(*) as total_users FROM users";
+				$sql = "SELECT COUNT(*) as total_users FROM user";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
@@ -110,7 +100,7 @@ $dbname = "tat";
 				}
 
 				// Query to retrieve total issues
-				$sql = "SELECT COUNT(*) as total_issues FROM issues";
+				$sql = "SELECT COUNT(*) as total_issues FROM inquiry";
 				$result = $conn->query($sql);
 
 				if ($result->num_rows > 0) {
@@ -159,38 +149,9 @@ $dbname = "tat";
 	?>
 </div>
 
-<div class="box red">
-    <h1>Total Ratings</h1>
-    <?php
-        // Connect to database
-        $servername = "localhost";
-        $username = "root";
-        $password = "";
-        $dbname = "tat"; 
-
-        $conn = new mysqli($servername, $username, $password, $dbname);
-
-        if ($conn->connect_error) {
-            die("Connection failed: " . $conn->connect_error);
-        }
-
-        // Query to retrieve total ratings for packages
-        $sql = "SELECT COUNT(*) as total_ratings FROM ratings WHERE package_id IN (SELECT id FROM packages)";
-        $result = $conn->query($sql);
-
-        if ($result->num_rows > 0) {
-            // Output data of each row
-            while($row = $result->fetch_assoc()) {
-                echo "<p>" . $row["total_ratings"] . "</p>";
-            }
-        } else {
-            echo "<p>No ratings found.</p>";
-        }
-
-        $conn->close();
-    ?>
 </div>
-	</div>
 
 </body>
+
+<?php include('footer.php') ?>
 </html>
