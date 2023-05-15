@@ -12,46 +12,43 @@ if (!$conn) {
     die("Connection failed: " . mysqli_connect_error());
 }
 
-// Define variables and initialize with empty values
-$firstname = $lastname = $username = $email = $password = $address = $contact = "";
-$error = "";
-
 // Check if form is submitted
-if ($_SERVER["REQUEST_METHOD"] == "POST") {
+if (isset($_POST['submit'])) {
 
     // Get form data
-    $firstname = test_input($_POST['firstname']);
-    $lastname = test_input($_POST['lastname']);
-    $username = test_input($_POST['username']);
-    $email = test_input($_POST['email']);
-    $password = test_input($_POST['password']);
-    $address = test_input($_POST['address']);
-    $contact = test_input($_POST['contact']);
+    $firstname = $_POST['firstname'];
+    $lastname = $_POST['lastname'];
+    $username = $_POST['username'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+    $address = $_POST['address'];
+    $contact = $_POST['contact'];
 
-    // Get current date and time
-    $dateadded = date("Y-m-d H:i:s");
+    // Validate contact field
+    if (!ctype_digit($contact)) {
+        echo "<script>alert('Contact number must be an integer. Please try again.')</script>";
+    } else {
+        // Get current date and time
+        $dateadded = date("Y-m-d H:i:s");
 
-    // Check if email is valid
-    if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
-
-        // Check if contact is a number
-        if (!is_numeric($contact)) {
-            $error = "Contact must be a number. Please try again.";
-        } else {
+        // Check if email is valid
+        if (filter_var($email, FILTER_VALIDATE_EMAIL)) {
 
             // Insert data into database
             $sql = "INSERT INTO user (firstname, lastname, username, email, password, address, contact, date_added) VALUES ('$firstname', '$lastname', '$username', '$email', '$password', '$address', '$contact', '$dateadded')";
             if (mysqli_query($conn, $sql)) {
+                echo "<script>alert('User added successfully!')</script>";
                 header("Location: login.php");
                 exit();
             } else {
-                echo "Error: " . $sql . "<br>" . mysqli_error($conn);
+                echo "<script>alert('Error: " . mysqli_error($conn) . "')</script>";
             }
+        } else {
+            echo "<script>alert('Invalid email. Please try again.')</script>";
         }
-    } else {
-        $error = "Invalid email. Please try again.";
     }
 }
+
 
 // Function to clean input data
 function test_input($data)
@@ -113,7 +110,8 @@ mysqli_close($conn);
                     <label for="address">Address</label>
 					<input type="address" id="address" name="address" required>
                     <label for="contact">Contact no:</label>
-					<input type="contact" id="contact" name="contact" required>
+<input type="text" id="contact" name="contact" pattern="[^0-9]+" required>
+<small>Only non-numeric characters are allowed.</small>
 					<center> <a href="login.php"> Already have an account ? </a> </center>
                     
 
