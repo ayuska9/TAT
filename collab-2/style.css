@@ -1,0 +1,276 @@
+/* Reset default styles */
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+  }
+  
+  /* Global styles */
+  body {
+	font-family: Arial, sans-serif;
+	font-size: 16px;
+	line-height: 1.5;
+	color: #333;
+  }
+  
+  a {
+	color: #ffffff;
+	text-decoration: none;
+  }
+  
+  ul {
+	list-style: none;
+	text-decoration: none;
+  }
+  li{
+	text-decoration: none;
+  }
+  
+  img {
+	max-width: 100%;
+	height: auto;
+  }
+  
+  /* Header styles */
+  header {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	padding: 10px;
+	background-color: #010101;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  h1 {
+	font-size: 28px;
+	font-weight: bold;
+	color: #ffffff;
+  }
+  
+  nav ul {
+	display: flex;
+  }
+  
+  nav ul li + li {
+	margin-left: 20px;
+  }
+  
+  nav ul li a {
+	padding: 10px;
+	color: #fff;
+	border-radius: 5px;
+	transition: background-color 0.3s ease-in-out;
+  }
+  
+  nav ul li a:hover {
+	color: #e3500c;
+	
+  }
+  
+  #banner .btn:hover {
+	background-color: #333;
+	color: #fff;
+  }
+  
+  /* Banner styles */
+  #banner {
+	height: 91vh;
+	background-size: cover;
+	background-position: center;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #fff;
+	text-align: center;
+	animation: banner-animation 30s infinite;
+  }
+  
+  @keyframes banner-animation {
+	0% {
+	  background-image: url('1.jpg');
+	}
+	25% {
+	  background-image: url('6.jpg');
+	}
+	50% {
+	  background-image: url('7.jpg');
+	}
+	75% {
+	  background-image: url('4.jpg');
+	}
+	100% {
+		background-image: url('5.jpg');
+	}
+
+  }
+  
+  #banner h2 {
+	font-size: 48px;
+	font-weight: bold;
+	margin-bottom: 20px;
+  }
+  
+  #banner p {
+	font-size: 24px;
+	margin-bottom: 20px;
+  }
+  
+  #banner .btn {
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-weight: bold;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+  }
+  
+  #banner .btn:hover {
+	background-color: #ffffff;
+	color: #000000;
+  }
+  
+  /* About section styles */
+  #about {
+	padding: 50px 20px;
+  }
+  
+  #about h2 {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 20px;
+  }
+  
+  #about p {
+	font-size: 18px;
+	line-height: 1.6;
+	margin-bottom: 20px;
+  }
+  
+  /* Tours section styles */
+  #tours {
+	padding: 50px 20px;
+  }
+  
+  #tours h2 {
+	font-size: 32px;
+	font-weight: bold;
+	margin-bottom: 20px;
+  }
+  
+  #tours ul {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+	gap: 30px;
+	margin-top: 30px;
+  }
+  
+  #tours li {
+	background-color: #fff;
+	box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+	padding: 20px;
+  }
+  
+  #tours li h3 {
+	font-size: 24px;
+	font-weight: bold;
+	margin-bottom: 10px;
+  }
+  
+  #tours li p {
+	font-size: 16px;
+	margin-bottom: 20px
+  }
+  
+  #tours li img {
+	margin-bottom: 20px;
+	}
+	
+	#tours li .btn {
+	padding: 10px 20px;
+	border-radius: 5px;
+	background-color: #000000;
+	color: #ffffff;
+	font-weight: bold;
+	transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+	}
+	
+	#tours li .btn:hover {
+	background-color: #ffffff;
+	color: #000000;
+	}
+	
+	/* Contact section styles */
+	/* Use meaningful IDs and classes to target elements */
+	#contact {
+		padding: 50px 20px;
+	  }
+	  
+	  #contact h2 {
+		font-size: 32px;
+		font-weight: bold;
+		margin-bottom: 20px;
+	  }
+	  
+	  #contact form {
+		display: grid;
+		grid-template-columns: 1fr 1fr;
+		gap: 30px;
+		margin-top: 30px;
+	  }
+	  
+	  #contact form label {
+		font-size: 18px;
+		font-weight: bold;
+		margin-bottom: 10px;
+		display: block;
+	  }
+	  
+	  #contact form input,
+	  #contact form textarea {
+		padding: 10px;
+		border-radius: 5px;
+		border: none;
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+		width: 100%;
+	  }
+	  
+	  #contact form input:focus,
+	  #contact form textarea:focus {
+		outline: none;
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+	  }
+	  
+	  #contact form button {
+		padding: 10px 20px;
+		border-radius: 5px;
+		width: 200px;
+		background-color: #000000;
+		color: #fff;
+		font-weight: bold;
+		border: none;
+		box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.1);
+		transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+	  }
+	  
+	  #contact form button:hover {
+		background-color: #0055ff;
+		color: #000000;
+		cursor: pointer;
+	  }
+	  footer {
+		background-color: #000000;
+		position: fixed;
+		bottom: 0;
+		left: 0;
+		width: 100%;
+		color: #fff;
+		text-align: center;
+		padding: 10px 0;
+		}
+		
+		footer p {
+		font-size: 14px;
+		margin-bottom: 0;
+		}
+		
